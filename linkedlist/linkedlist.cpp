@@ -54,17 +54,33 @@ void Addatpst(link* &head,int data,int pst) {
 	node->prev = temp;
 	temp->next = node;
 }
+void DeleteValue(link* head,int data) {
+       if(head->data == data) { 
+       		link* temp = head;
+ 		temp->next = head->next;
+		head->next = NULL;
+		head = temp;
+		return;
+       }
+       link* temp = new link(data);
+       link* pst = head;
+       while(pst->data != temp->data) { 
+	       pst = pst->next;
+       }
+				
+}		
 
 int main() {
        link* head = new link(1);	
        link* tail = head;
-       AddatHead(head,99);
-       AddatHead(head,98);
-       AddatHead(head,98);
-       AddatHead(head,98);
-       show(head);
-       printf("Before insert\n");
-       AddatTail(tail,0);
-       show(head);
+       AddatHead(head,0);
+       AddatTail(tail,2);
+       AddatTail(tail,3);
+       AddatTail(tail,4);
+       AddatTail(tail,5);
+       AddatTail(tail,6);
+       DeleteValue(head,4);
+
+	show(head);       
 	return 0;
 }
