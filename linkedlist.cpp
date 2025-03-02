@@ -20,9 +20,17 @@ void show(link* head) {
 		temp = temp->next;
 	}
 }
+void AddatHead(link* &head,int data) { 
+	link* temp = new link(data);
+	temp->next = head;
+	head->prev = temp;
+	head = temp;
+}
+
 
 int main() {
        link* head = new link(1);	
+       AddatHead(head,99);
        show(head);
 	return 0;
 }
