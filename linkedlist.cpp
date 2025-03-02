@@ -27,10 +27,31 @@ void AddatHead(link* &head,int data) {
 	head = temp;
 }
 
+void Addatpst(link* &head,int data,int pst) { 
+	if(pst <=1) { 
+		AddatHead(head,data);
+		return;
+	}
+	int count = 1;
+	link* temp = head;
+	while(count < pst - 1) { 
+	temp = temp->next;
+	}
+	link* node = new link(data);
+	node->next = temp->next;
+	node->prev = temp;
+	temp->next = node;
+}
 
 int main() {
        link* head = new link(1);	
        AddatHead(head,99);
+       AddatHead(head,98);
+       AddatHead(head,98);
+       AddatHead(head,98);
+       show(head);
+       printf("Before insert\n");
+       Addatpst(head,0,2);
        show(head);
 	return 0;
 }
