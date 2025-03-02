@@ -20,6 +20,8 @@ void show(link* head) {
 		temp = temp->next;
 	}
 }
+
+
 void AddatHead(link* &head,int data) { 
 	link* temp = new link(data);
 	temp->next = head;
@@ -27,6 +29,16 @@ void AddatHead(link* &head,int data) {
 	head = temp;
 }
 
+void AddatTail(link* &tail,int data) { 
+	link* temp = new link(data);
+	if(tail->prev == NULL) { 
+		AddatHead(tail,data);
+		return;
+	}
+	temp->prev = tail;
+	tail->next = temp;
+	tail = temp;
+}
 void Addatpst(link* &head,int data,int pst) { 
 	if(pst <=1) { 
 		AddatHead(head,data);
@@ -45,13 +57,14 @@ void Addatpst(link* &head,int data,int pst) {
 
 int main() {
        link* head = new link(1);	
+       link* tail = head;
        AddatHead(head,99);
        AddatHead(head,98);
        AddatHead(head,98);
        AddatHead(head,98);
        show(head);
        printf("Before insert\n");
-       Addatpst(head,0,2);
+       AddatTail(tail,0);
        show(head);
 	return 0;
 }
