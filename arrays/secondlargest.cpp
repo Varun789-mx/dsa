@@ -1,25 +1,23 @@
-#include <iostream>
+#include<iostream>
+
 using namespace std;
 
-int main()
-{
-    int max = 0;
-    int smax = 0;
-    int arr[] = {9, 7, 1, 1, 0, 1, 8, 7, 8, 0};
-    int length = sizeof(arr) / sizeof(arr[0]);
+int main () { 
+	int arr[] = {1,3,4,2,4,2,4,9};
+	int len = sizeof(arr)/sizeof(arr[0]);
 
-    for (int i = 0; i < length; i++)
-    {
-        if (arr[i] > max)
-        {
-            smax = max;
-            max = arr[i];
-        }
-        else if (arr[i] > smax && arr[i] != max)
-        {
-            smax = arr[i];
-        }
-    }
-    cout <<"Max :"<< max<<endl;
-    cout << "Second max:"<<smax<<endl;
+	int max = -1;
+	int smax = -1;
+	for(int i = 0 ;i < len;i++) { 
+		if(max < arr[i]) { 
+			smax = max;
+			max = arr[i];
+		}
+		else if(arr[i] > smax && arr[i] != max) { 
+			smax = arr[i];
+	}
+}
+	
+	cout<<max<<endl;
+	cout<<smax<<endl;
 }
